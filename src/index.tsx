@@ -151,8 +151,8 @@ Environment Variables:
     }
   }
 
-  // Start the TUI
-  const { waitUntilExit } = render(<App />);
+  // Start the TUI (fullscreen mode like btop)
+  const { waitUntilExit } = render(<App />, { fullScreen: true });
   await waitUntilExit();
 }
 

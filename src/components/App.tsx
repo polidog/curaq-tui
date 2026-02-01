@@ -253,7 +253,8 @@ export function App() {
 
   // Layout - use full terminal width
   const contentWidth = termWidth - 2;
-  const listHeight = Math.min(termHeight - 14, 20);
+  // Use all available terminal height for list (fullscreen mode)
+  const listHeight = Math.max(termHeight - LOGO.length - 8, 5);
 
   // Stats
   const totalReadingTime = articles.reduce((sum, a) => sum + (a.reading_time_minutes || 0), 0);
