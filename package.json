@@ -32,11 +32,11 @@
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/polidog/CuraK.git"
+    "url": "git+https://github.com/polidog/curaq-tui.git"
   },
-  "homepage": "https://github.com/polidog/CuraK#readme",
+  "homepage": "https://github.com/polidog/curaq-tui#readme",
   "bugs": {
-    "url": "https://github.com/polidog/CuraK/issues"
+    "url": "https://github.com/polidog/curaq-tui/issues"
   },
   "engines": {
     "node": ">=18"
