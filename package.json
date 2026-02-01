@@ -1,0 +1,66 @@
+{
+  "name": "curaq-tui",
+  "version": "0.0.1",
+  "description": "CuraQ CLI/TUI client - A retro terminal UI for managing articles",
+  "main": "dist/index.js",
+  "type": "module",
+  "bin": {
+    "curaq-tui": "dist/index.js"
+  },
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "build": "VERSION=$(node -p \"require('./package.json').version\") && esbuild src/index.tsx --bundle --outdir=dist --platform=node --format=esm --define:__APP_VERSION__=\"\\\"$VERSION\\\"\" --packages=external && sed -i '1i#!/usr/bin/env node' dist/index.js",
+    "start": "pnpm build && node dist/index.js",
+    "setup": "pnpm build && node dist/index.js setup",
+    "dev": "pnpm build && node dist/index.js",
+    "prepublishOnly": "pnpm run build",
+    "release": "pnpm version patch && git push && git push --tags",
+    "release:minor": "pnpm version minor && git push && git push --tags",
+    "release:major": "pnpm version major && git push && git push --tags"
+  },
+  "keywords": [
+    "curaq",
+    "tui",
+    "cli",
+    "terminal",
+    "article",
+    "reader"
+  ],
+  "author": "polidog",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/polidog/CuraK.git"
+  },
+  "homepage": "https://github.com/polidog/CuraK#readme",
+  "bugs": {
+    "url": "https://github.com/polidog/CuraK/issues"
+  },
+  "engines": {
+    "node": ">=18"
+  },
+  "dependencies": {
+    "@mozilla/readability": "^0.6.0",
+    "ink": "^6.6.0",
+    "ink-spinner": "^5.0.0",
+    "ink-text-input": "^6.0.0",
+    "jsdom": "^27.4.0",
+    "react": "^19.0.0",
+    "react-devtools-core": "^7.0.1",
+    "ws": "^8.18.0"
+  },
+  "devDependencies": {
+    "@types/jsdom": "^27.0.0",
+    "@types/node": "^20.0.0",
+    "@types/react": "^19.0.0",
+    "esbuild": "^0.24.0",
+    "typescript": "^5.0.0"
+  },
+  "pnpm": {
+    "onlyBuiltDependencies": [
+      "esbuild"
+    ]
+  }
+}
